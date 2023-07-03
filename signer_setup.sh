@@ -20,7 +20,7 @@ sudo add-apt-repository -y ppa:ethereum/ethereum
 sudo apt-get install ethereum
 
 # Create new geth account
-geth account new --datadir data --password "$PASSWORD" > /root/.ethereum/account.txt
+geth account new --datadir data --password "$PASSWORD" > account.txt
 
 # Save password to file
 echo "$PASSWORD" > password.txt
@@ -28,7 +28,7 @@ echo "$PASSWORD" > password.txt
 # Initialize geth with genesis.json
 geth init --datadir data genesis.json
 
-ACCOUNT_ADDRESS=$(grep -o -E '0x[a-fA-F0-9]{40}' /root/.ethereum/account.txt)
+ACCOUNT_ADDRESS=$(grep -o -E '0x[a-fA-F0-9]{40}' account.txt)
 echo $ACCOUNT_ADDRESS
 
 # Define service configuration
