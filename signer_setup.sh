@@ -19,11 +19,11 @@ sudo apt-get update
 sudo add-apt-repository -y ppa:ethereum/ethereum
 sudo apt-get install ethereum
 
-# Create new geth account
-geth account new --datadir data --password "$PASSWORD" > account.txt
-
 # Save password to file
 echo "$PASSWORD" > password.txt
+
+# Create new geth account
+geth account new --datadir data --password password.txt > account.txt
 
 # Initialize geth with genesis.json
 geth init --datadir data genesis.json
