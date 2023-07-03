@@ -48,9 +48,14 @@ RestartSec=5s
 [Install]
 WantedBy=multi-user.target"
 
+mkdir -p ~/.config/systemd/user
+
 # Save service configuration to file
-echo "$CONFIG" > /lib/systemd/system/geth.service
+echo "$CONFIG" > ~/.config/systemd/user/geth.service
+
+# Reload the systemd manager configuration
+systemctl --user daemon-reload
 
 # Enable and start service
-sudo systemctl enable geth
-sudo systemctl start geth
+systemctl --user enable geth
+systemctl --user start geth
