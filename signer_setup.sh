@@ -60,7 +60,7 @@ systemctl start geth
 
 LOG_ROTATE_CONFIG="/var/log/geth/geth.log {
     daily
-    rotate 7
+    rotate 3
     compress
     delaycompress
     missingok
