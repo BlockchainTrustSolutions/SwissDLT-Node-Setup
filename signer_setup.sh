@@ -57,3 +57,16 @@ systemctl daemon-reload
 # Enable and start service
 systemctl enable geth
 systemctl start geth
+
+LOG_ROTATE_CONFIG="/var/log/geth/geth.log {
+    daily
+    rotate 7
+    compress
+    delaycompress
+    missingok
+    notifempty
+    create 0644 root root
+    size 100M
+}"
+
+echo "$LOG_ROTATE_CONFIG" > /etc/logrotate.d/geth
