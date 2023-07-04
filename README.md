@@ -69,7 +69,7 @@ Your VM can now connect to other nodes. Let's continue with the final setup. Pro
   ```chmod +x signer_setup.sh```
 
 
-- Run the script, replacing "REPLACE_WITH_YOUR_PASSWORD" with your chosen password:
+- Run the script, replacing "YOUR_PASSWORD" with your chosen password:
 
   ```sudo ./signer_setup.sh YOUR_PASSWORD``` e.g. ```sudo ./signer_setup.sh 123```
 
@@ -90,20 +90,18 @@ Your VM can now connect to other nodes. Let's continue with the final setup. Pro
 
 - To verify everything is running correctly, enter:
 
-  ```systemctl --user --type=service --state=active```
+  ```systemctl status geth```
 
 
-- You should see something like this:<br>
-  ``` 
-  UNIT         LOAD   ACTIVE SUB     DESCRIPTION
-  geth.service loaded active running SignerNode
-  ```
+- Under the section "Active" it should be written a green "active (running)".
+
 
 - You can also check the logs by entering:
 
-```journalctl --user-unit=geth.service```
+  ```journalctl -u geth -n 20```
 
-If you see messages like "Imported new chain segment" and "Looking for peers", everything seems to be in order.
+
+- If you see messages like "Imported new chain segment" and "Looking for peers", everything seems to be in order.
 
 Congratulations! You're now running a node in the SwissDLT network!
 
