@@ -71,7 +71,7 @@ Your VM can now connect to other nodes. Let's continue with the final setup. Pro
 
 - Run the script, replacing "REPLACE_WITH_YOUR_PASSWORD" with your chosen password:
 
-  ```sudo ./signer_setup.sh YOUR_PASSWORD``` e.g. ```./signer_setup.sh 123```
+  ```sudo ./signer_setup.sh YOUR_PASSWORD``` e.g. ```sudo ./signer_setup.sh 123```
 
 
 - During the script execution, confirm any operations by responding with "yes" or "y".
