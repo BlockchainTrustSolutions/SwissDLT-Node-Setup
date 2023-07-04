@@ -1,6 +1,6 @@
 # Setting Up a Signer Node
 
-Although setting up a signer node may seem technically challenging, we've simplified the process as much as possible. If you need further clarification or encounter any issues, don't hesitate to contact me at [silas.stulz@bcts.ch](mailto:silas.stulz@bcts.ch?subject=SwissDLT Setup Support).
+Although setting up a signer node may seem technically challenging, we've simplified the process as much as possible. If you need further clarification or encounter any issues, don't hesitate to contact me at [silas.stulz@bcts.ch](mailto:silas.stulz@bcts.ch?subject=SwissDLT%20Setup%20Support).
 
 You can run a SwissDLT node in one of two ways: in a container or via source installation. Both methods require setting up a Virtual Machine (VM).
 
