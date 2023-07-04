@@ -32,7 +32,6 @@ ACCOUNT_ADDRESS=$(grep -o -E '0x[a-fA-F0-9]{40}' account.txt)
 echo $ACCOUNT_ADDRESS
 
 WORKDIR=$(pwd)
-CURRENT_USER=$(whoami)
 
 # Define service configuration
 CONFIG="[Unit]
@@ -50,11 +49,11 @@ WantedBy=multi-user.target"
 mkdir -p ~/.config/systemd/user
 
 # Save service configuration to file
-echo "$CONFIG" > ~/.config/systemd/user/geth.service
+echo "$CONFIG" > /etc/systemd/system/geth.service
 
 # Reload the systemd manager configuration
-systemctl --user daemon-reload
+systemctl daemon-reload
 
 # Enable and start service
-systemctl --user enable geth
-systemctl --user start geth
+systemctl enable geth
+systemctl start geth
