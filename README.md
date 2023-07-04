@@ -1,83 +1,111 @@
-# Setup a Signer Node
+# Setting Up a Signer Node
 
-As setting up a signer node might be a technical task, I tried to simplify it as much as possible. Still, if something is unclear or you need support, contact me anytime at [silas.stulz@bcts.ch](mailto:silas.stulz@bcts.ch?subject=SwissDLT Setup Support)
+Although setting up a signer node may seem technically challenging, we've simplified the process as much as possible. If you need further clarification or encounter any issues, don't hesitate to contact me at [silas.stulz@bcts.ch](mailto:silas.stulz@bcts.ch?subject=SwissDLT Setup Support).
 
-There are currently two possible ways to run a SwissDLT node, in a container or a source installation. For either of them you need to setup a VM.
+You can run a SwissDLT node in one of two ways: in a container or via source installation. Both methods require setting up a Virtual Machine (VM).
 
 ## 1. Virtual Machine Setup
 
 ### 1.1 Azure
 
+#### 1.1.1 Creating a VM
+
 **BASICS**
 
 Create a new VM in Azure with the following properties:
 
-Region: (Europe) Switzerland North
-Image: Ubuntu Server 22.04 LTS
-VM Architecture: x64
-Size: At least something like "B1ms" better "B2s" or similar.
+- **Resource group** Create a new one.
+- **Region**: (Europe) Switzerland North
+- **Image**: Ubuntu Server 22.04 LTS
+- **VM Architecture**: x64
+- **Size**: Minimum "B1ms", but "B2s" or similar is recommended.
+- **Authentication type**: If you're familiar with SSH certificates, please create one and use it. However, password-based access is also acceptable.
 
-Authentication: If you are familiar on how to use an SSH certificate please create one and use it. Otherwise it is fine to use a password based access.
-
-Otherwise keep the default settings.
+Keep the default settings for the other fields. Proceed to the "Disks" section.
 
 **DISKS**
-OS disk size: 128 GiB. This will give you enough space in case the blockchain gets bigger in size.
 
+- **OS disk size**: 128 GiB. This should provide ample space for the growing blockchain.
+
+Keep the default settings for the other fields. Proceed to "Networking".
+
+**NETWORKING**
+
+A virtual network, a subnet, and a public IP should be assigned by default. If there's no virtual network assigned, create a new one. Click "Create new", enter a name, and leave the rest as is. This action should automatically set a subnet and a public IP.
+
+Keep the default settings for the other fields and proceed to "Review + create". If there are no errors, create the VM.
+
+#### 1.1.2 Opening Required Ports
+
+- Navigate to your newly created VM.
+- Click the "Networking" tab.
+- Select "Add inbound port rule".
+- In "Destination port ranges", enter **30300-30310**.
+- Click "Add".
+
+Your VM can now connect to other nodes. Let's continue with the final setup. Proceed to Chapter 2.
 
 ### 1.2 AWS
 
-## 2. Virtual Machine installation
+## 2. Virtual Machine Installation
 
-- Connect to your virtual machine you setup via SSH.
+- Connect to your virtual machine (the one you just set up) via SSH. You can find that information under the "Connect" tab on Azure
+
+  ```ssh username@ip``` 
 
 
-- Pull the git repository:
+- Clone the git repository:
 
   ```git clone https://github.com/BlockchainTrustSolutions/SwissDLT-Node-Setup```
 
 
-- Move into the folder
+- Navigate to the cloned repository:
 
   ```cd SwissDLT-Node-Setup/```
 
 
-- Make the script executable
+- Make the script executable:
 
   ```chmod +x signer_setup.sh```
 
 
-- Execute the script with your password
+- Run the script, replacing "REPLACE_WITH_YOUR_PASSWORD" with your chosen password:
 
-  ```./signer_setup.sh REPLACE_WITH_YOUR_PASSWORD``` e.g ```./signer_setup.sh 123```
+  ```sudo ./signer_setup.sh YOUR_PASSWORD``` e.g. ```./signer_setup.sh 123```
 
 
-You will have to allow a few operations as the script is running. When requested please enter with yes or y.
+- During the script execution, confirm any operations by responding with "yes" or "y".
 
-When the script ran successfully you will see your public key as output. E.g 0x453BF47b6c8E9b466f463D1b1D487C9aC35A952B
 
-If you do not see that output, check the account.txt file:
+- If successful, your public key should be displayed. For instance: 0x453BF47b6c8E9b466f463D1b1D487C9aC35A952B
 
-```cat account.txt```
 
-Please share the public key with Toni or Silas, so we can add you as a signer.
+- If you don't see this output, check the account.txt file:
 
-- Let's check if everything is running as it should.
+  ```cat account.txt```
+
+
+- Please share the public key with Toni or Silas, so we can add you as a signer.
+
+
+- To verify everything is running correctly, enter:
 
   ```systemctl --user --type=service --state=active```
 
-- You should see something like this: 
+
+- You should see something like this:<br>
   ``` 
   UNIT         LOAD   ACTIVE SUB     DESCRIPTION
-  geth.service loaded active running SignerNode```
+  geth.service loaded active running SignerNode
+  ```
 
-- You can also check the logs:
+- You can also check the logs by entering:
 
-  ```journalctl --user-unit=geth.service```
+```journalctl --user-unit=geth.service```
 
-  If you see outputs like "Imported new chain segment" and "Looking for peers" everything seems fine.
+If you see messages like "Imported new chain segment" and "Looking for peers", everything seems to be in order.
 
-Congrats! You are now running a node in the SwissDLT network!
+Congratulations! You're now running a node in the SwissDLT network!
 
 ## 3. Docker Setup
 
