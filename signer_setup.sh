@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Ensure the script is run with superuser privileges
-if [ "$EUID" -ne 0 ]
+if [ "$(id -u)" -ne 0 ]
   then echo "Please run as root"
   exit
 fi
