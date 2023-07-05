@@ -21,7 +21,7 @@ Create a new VM in Azure with the following properties:
 - **Size**: Minimum "B1ms", but "B2s" or similar is recommended.
 - **Authentication type**: If you're familiar with SSH certificates, please create one and use it. However, password-based access is also acceptable.
 
-![Azure VM Setup](img/azure_vm_basics.png)
+<img src="img/azure_vm_basics.png" alt="Azure VM Setup Basics" width="200"/>
 
 Keep the default settings for the other fields. Proceed to the "Disks" section.
 
@@ -29,7 +29,7 @@ Keep the default settings for the other fields. Proceed to the "Disks" section.
 
 - **OS disk size**: 128 GiB. This should provide ample space for the growing blockchain.
 
-![Azure VM Setup](img/azure_vm_disks.png)
+<img src="img/azure_vm_disks.png" alt="Azure VM Setup Disks" width="200"/>
 
 Keep the default settings for the other fields. Proceed to "Networking".
 
@@ -38,7 +38,7 @@ Keep the default settings for the other fields. Proceed to "Networking".
 A virtual network, a subnet, and a public IP should be assigned by default. If there's no virtual network assigned, create a new one. Click "Create new", enter a name, and leave the rest as is. This action should automatically set a subnet and a public IP.
 
 
-![Azure VM Setup](img/azure_vm_networking.png)
+<img src="img/azure_vm_networking.png" alt="Azure VM Setup Networking" width="200"/>
 
 
 Keep the default settings for the other fields and proceed to "Review + create". If there are no errors, create the VM.
