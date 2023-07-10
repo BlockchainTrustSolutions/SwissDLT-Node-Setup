@@ -77,7 +77,7 @@ Your VM can now connect to other nodes. Let's continue with the final setup. Pro
   ```chmod +x signer_setup.sh```
 
 
-- Run the script, replacing "YOUR_PASSWORD" with your chosen password:
+- Run the script, replacing "YOUR_PASSWORD" with a password of your choosing (This password will protect your wallet):
 
   ```sudo ./signer_setup.sh YOUR_PASSWORD``` e.g. ```sudo ./signer_setup.sh 123```
 
@@ -112,6 +112,17 @@ Your VM can now connect to other nodes. Let's continue with the final setup. Pro
 - If you see messages like "Imported new chain segment" and "Looking for peers", everything seems to be in order.
 
 Congratulations! You're now running a node in the SwissDLT network!
+
+(Optional) As a last step you should backup your private key file from your server to your local machine.
+
+- Go to your keystore <br>
+  ```cd data/keystore```
+- Look at your files <br>
+  ```ls```
+- There should only be one file. Show the contents of that file.<br>
+  ```cat <filename>``` You should be able to press TAB after typing "cat" and it should autofill the rest.
+
+Now just copy the content displayed with Ctrl+C and paste it on your local computer into a notepad and save it as a .json file. Please keep this file somewhere save. With that file and your chosen password it is possible to access or restore the wallet.
 
 ## 3. Docker Setup
 
