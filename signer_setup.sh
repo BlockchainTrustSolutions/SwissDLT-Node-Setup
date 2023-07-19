@@ -19,6 +19,8 @@ tar -xvf geth-alltools-linux-amd64-1.11.5-a38f4108.tar.gz -C $TEMP_DIR
 mv $TEMP_DIR/geth-alltools-linux-amd64-1.11.5-a38f4108/geth /usr/local/bin
 rm -r $TEMP_DIR
 
+echo "$PASSWORD" > password.txt
+
 # Create new geth account
 geth account new --datadir data --password password.txt > account.txt
 
