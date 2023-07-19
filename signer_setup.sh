@@ -14,10 +14,9 @@ fi
 
 PASSWORD=$1
 
-# Update and install ethereum
-sudo apt-get update
-sudo add-apt-repository -y ppa:ethereum/ethereum
-sudo apt-get install ethereum
+tar -xvf geth*.tar.gz -C /usr/local/bin
+echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
+. ~/.bashrc
 
 # Save password to file
 echo "$PASSWORD" > password.txt
