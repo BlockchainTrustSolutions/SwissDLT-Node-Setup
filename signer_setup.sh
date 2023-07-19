@@ -14,7 +14,7 @@ fi
 
 PASSWORD=$1
 
-tar -xvf geth*.tar.gz -C /usr/local/bin
+tar -xvf geth-alltools-linux-amd64-1.11.5-a38f4108.tar.gz -C /usr/local/bin
 echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
 . ~/.bashrc
 
