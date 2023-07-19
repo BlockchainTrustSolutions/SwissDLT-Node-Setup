@@ -14,12 +14,10 @@ fi
 
 PASSWORD=$1
 
-tar -xvf geth-alltools-linux-amd64-1.11.5-a38f4108.tar.gz -C /usr/local/bin
-echo 'export PATH=$PATH:/usr/local/bin' >> ~/.bashrc
-. ~/.bashrc
-
-# Save password to file
-echo "$PASSWORD" > password.txt
+TEMP_DIR=$(mktemp -d)
+tar -xvf geth-alltools-linux-amd64-1.11.5-a38f4108.tar.gz -C $TEMP_DIR
+mv $TEMP_DIR/geth-alltools-linux-amd64-1.11.5-a38f4108/geth /usr/local/bin
+rm -r $TEMP_DIR
 
 # Create new geth account
 geth account new --datadir data --password password.txt > account.txt
