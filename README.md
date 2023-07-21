@@ -77,9 +77,9 @@ Your VM can now connect to other nodes. Let's continue with the final setup. Pro
   ```chmod +x signer_setup.sh```
 
 
-- Run the script, replacing "YOUR_PASSWORD" with a password of your choosing (This password will protect your wallet):
+- Run the script, replacing "YOUR_PASSWORD" with a password of your choosing (This password will protect your wallet). It's important the password is wrapped in single quotes ''.:
 
-  ```sudo ./signer_setup.sh YOUR_PASSWORD``` e.g. ```sudo ./signer_setup.sh 123```
+  ```sudo ./signer_setup.sh 'YOUR_PASSWORD'``` e.g. ```sudo ./signer_setup.sh '123'```
 
 
 - During the script execution, confirm any operations by responding with "yes" or "y".
