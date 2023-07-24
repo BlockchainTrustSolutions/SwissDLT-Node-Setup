@@ -69,3 +69,6 @@ LOG_ROTATE_CONFIG="/var/log/geth/geth.log {
 }"
 
 echo "$LOG_ROTATE_CONFIG" > /etc/logrotate.d/geth
+
+# Create a cron job to execute `journalctl --vacuum-size=100M` every Sunday at 12:00
+(crontab -l 2>/dev/null; echo "0 12 * * 0 journalctl --vacuum-size=100M") | crontab -
