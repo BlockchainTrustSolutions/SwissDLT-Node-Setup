@@ -1,4 +1,4 @@
-# Setting Up a Signer Node
+# Setting Up a Node
 
 Although setting up a signer node may seem technically challenging, we've simplified the process as much as possible. If you need further clarification or encounter any issues, don't hesitate to contact me at [silas.stulz@bcts.ch](mailto:silas.stulz@bcts.ch?subject=SwissDLT%20Setup%20Support).
 
@@ -71,6 +71,9 @@ Your VM can now connect to other nodes. Let's continue with the final setup. Pro
 
   ```cd SwissDLT-Node-Setup/```
 
+Depending on whether you want to run a signer node or an just an archive node, you need to run a different script.
+
+<b>For a signer node:</b>
 
 - Make the script executable:
 
@@ -81,9 +84,20 @@ Your VM can now connect to other nodes. Let's continue with the final setup. Pro
 
   ```sudo ./signer_setup.sh 'YOUR_PASSWORD'``` e.g. ```sudo ./signer_setup.sh '123'```
 
+<b>For an archive node:</b>
+
+- Make the script executable:
+
+  ```chmod +x archive_node_setup.sh```
+
+
+- Run the script, replacing "YOUR_PASSWORD" with a password of your choosing (This password will protect your wallet). It's important the password is wrapped in single quotes ''.:
+
+  ```sudo ./archive_node_setup.sh 'YOUR_PASSWORD'``` e.g. ```sudo ./archive_node_setup.sh '123'```
 
 - During the script execution, confirm any operations by responding with "yes" or "y".
 
+Continue here for both signer and archive:
 
 - If successful, your public key should be displayed. For instance: 0x453BF47b6c8E9b466f463D1b1D487C9aC35A952B
 
@@ -93,7 +107,7 @@ Your VM can now connect to other nodes. Let's continue with the final setup. Pro
   ```cat account.txt```
 
 
-- Please share the public key with Toni or Silas, so we can add you as a signer.
+- Please share the public key with Toni or Silas, so we can add you as a signer. (Only for signers)
 
 
 - To verify everything is running correctly, enter:
@@ -121,6 +135,14 @@ Congratulations! You're now running a node in the SwissDLT network!
   ```ls```
 - There should only be one file. Show the contents of that file.<br>
   ```cat <filename>``` You should be able to press TAB after typing "cat" and it should autofill the rest.
+
+If you have problems with the permission:
+
+- Show the filename <br>
+  ```sudo ls data/keystore```
+
+- Copy the filename and add it here instead of <filename> <br>
+  ```sudo cat data/keystore/<filename>```
 
 Now just copy the content displayed with Ctrl+C and paste it on your local computer into a notepad and save it as a .json file. Please keep this file somewhere save. With that file and your chosen password it is possible to access or restore the wallet.
 
