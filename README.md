@@ -1,6 +1,6 @@
 # Setting Up a Node
 
-Although setting up a signer node may seem technically challenging, we've simplified the process as much as possible. If you need further clarification or encounter any issues, don't hesitate to contact me at [silas.stulz@bcts.ch](mailto:silas.stulz@bcts.ch?subject=SwissDLT%20Setup%20Support).
+Although setting up a node may seem technically challenging, we've simplified the process as much as possible. If you need further clarification or encounter any issues, don't hesitate to contact me at [silas.stulz@bcts.ch](mailto:silas.stulz@bcts.ch?subject=SwissDLT%20Setup%20Support).
 
 You can run a SwissDLT node in one of two ways: in a container or via source installation. Both methods require setting up a Virtual Machine (VM).
 
@@ -95,9 +95,9 @@ Depending on whether you want to run a signer node or an just an archive node, y
 
   ```sudo ./archive_node_setup.sh 'YOUR_PASSWORD'``` e.g. ```sudo ./archive_node_setup.sh '123'```
 
-- During the script execution, confirm any operations by responding with "yes" or "y".
-
 Continue here for both signer and archive:
+
+- During the script execution, confirm any operations by responding with "yes" or "y".
 
 - If successful, your public key should be displayed. For instance: 0x453BF47b6c8E9b466f463D1b1D487C9aC35A952B
 
@@ -107,7 +107,7 @@ Continue here for both signer and archive:
   ```cat account.txt```
 
 
-- Please share the public key with Toni or Silas, so we can add you as a signer. (Only for signers)
+- (Only for signers) Please share the public key with Toni or Silas, so we can add you as a signer.
 
 
 - To verify everything is running correctly, enter:
