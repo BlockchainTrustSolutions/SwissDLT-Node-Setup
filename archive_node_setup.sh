@@ -35,7 +35,7 @@ Description=SignerNode
 
 [Service]
 WorkingDirectory=$WORKDIR
-ExecStart=geth --syncmode full --datadir $WORKDIR/data --bootnodes enode://8e516c7bf3e27606256d01119fa303c37cf632756d824ecf33ded99322e483022c12603a8e7dbac9785045ff9e2cee04941ee7c3a8eed56c91913234154f7743@16.62.223.91:30309 --networkid=94 --port 30308
+ExecStart=geth --syncmode full --gcmode archive --datadir $WORKDIR/data --bootnodes enode://8e516c7bf3e27606256d01119fa303c37cf632756d824ecf33ded99322e483022c12603a8e7dbac9785045ff9e2cee04941ee7c3a8eed56c91913234154f7743@16.62.223.91:30309 --networkid=94 --port 30308
 Restart=always
 RestartSec=5s
 
